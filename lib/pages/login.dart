@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _createAccountLabel() {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.LOGIN);
+        Navigator.of(context).pushNamed(AppRoutes.REGISTER_PAGE);
         /*Navigator.push(
             context, MaterialPageRoute(builder: (context) => SignUpPage()));*/
       },
