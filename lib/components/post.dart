@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:org_app/model/post.dart';
 //import 'package:org_app/pages/feed.dart';
 class DemoValues {
   static final String userImage = "assets/images/user.png";
@@ -10,29 +11,32 @@ class DemoValues {
   static final String postSummary = "Testeeeeeeeeeeeeeeeeeee\nsummary";
 }
 
-class Post extends StatelessWidget {
-  const Post({Key key}) : super(key: key);
+class PostComponent extends StatelessWidget {
+  final Post post;
+  const PostComponent(this.post);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 3,
       child: Row(
-        children: <Widget>[PostImage(), PostTitleAndSummary()],
+        children: <Widget>[PostImage(), PostTitleAndSummary(post)],
       ),
     );
   }
 }
 
 class PostTitleAndSummary extends StatelessWidget {
-  const PostTitleAndSummary({Key key}) : super(key: key);
+  final Post post;
+  const PostTitleAndSummary(this.post);
+  //const PostTitleAndSummary({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final TextStyle titleTheme = Theme.of(context).textTheme.headline6;
     final TextStyle summaryTheme = Theme.of(context).textTheme.bodyText2;
-    final String title = DemoValues.postTitle;
-    final String summary = DemoValues.postSummary;
+    final String title = post.title;
+    final String summary = post.content;
 
     return Expanded(
       flex: 3,
@@ -49,7 +53,6 @@ class PostTitleAndSummary extends StatelessWidget {
 }
 
 class PostImage extends StatelessWidget {
-  const PostImage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

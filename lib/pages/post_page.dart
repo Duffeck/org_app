@@ -20,7 +20,7 @@ class PostPage extends StatelessWidget {
             child: PostImage(),
           ),
           SizedBox(height: 10),
-          PostTitleAndSummary()
+          //PostTitleAndSummary()
         ]),
       ),
     );
