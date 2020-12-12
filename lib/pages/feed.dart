@@ -15,7 +15,7 @@ class PostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.POST);
+        Navigator.of(context).pushNamed(AppRoutes.POST, arguments: this.post);
       },
       child: AspectRatio(
         aspectRatio: 5 / 2,

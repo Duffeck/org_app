@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:org_app/model/post.dart';
+
 //import 'package:org_app/pages/feed.dart';
 class DemoValues {
   static final String userImage = "assets/images/user.png";
@@ -20,7 +21,7 @@ class PostComponent extends StatelessWidget {
     return Expanded(
       flex: 3,
       child: Row(
-        children: <Widget>[PostImage(), PostTitleAndSummary(post)],
+        children: <Widget>[PostImage(post), PostTitleAndSummary(post)],
       ),
     );
   }
@@ -53,9 +54,14 @@ class PostTitleAndSummary extends StatelessWidget {
 }
 
 class PostImage extends StatelessWidget {
+  final Post post;
+  const PostImage(this.post);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(flex: 2, child: Image.asset(DemoValues.postImage));
+    return Expanded(
+      flex: 2,
+      child: Image.network(post.imageURL),
+    );
   }
 }
